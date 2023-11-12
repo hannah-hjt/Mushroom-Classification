@@ -79,7 +79,7 @@ print("Accuracity:", accuracy_val)
 print("Precision:", precision_val_p)
 print("Recall:", recall_val_p)
 print("Specificity:", specificity_val)
-print('YOUR WATCHING THE VALIDATION GRAPH')
+print('YOUR WATCHING THE `TEST SET` GRAPH')
 
 cm_display.plot()
 plt.show()
