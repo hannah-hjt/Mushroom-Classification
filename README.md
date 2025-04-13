@@ -2,6 +2,7 @@
 ShroomSense is an AI-powered project designed to distinguish between poisonous and non-poisonous mushrooms based on their attributes. Leveraging a supervised learning approach, the model is trained using the Gaussian Naive Bayes (GaussianNB) algorithm from the scikit-learn library. The primary goal is to accurately classify mushrooms and potentially prevent accidental poisoning.
 
 Features
+
 ✅ Clean preprocessing of mushroom data
 
 ✅ Dataset split into training, validation, and test sets
