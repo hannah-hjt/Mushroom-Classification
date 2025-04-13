@@ -1,84 +1,119 @@
 
-ShroomSense is an AI-powered project designed to distinguish between poisonous and non-poisonous mushrooms based on their attributes. Leveraging a supervised learning approach, the model is trained using the Gaussian Naive Bayes (GaussianNB) algorithm from the scikit-learn library. The primary goal is to accurately classify mushrooms and potentially prevent accidental poisoning.
+# 🍄 Mushroom Classification
 
-Features
+**Mushroom Classification** is a machine learning project that identifies whether a mushroom is **poisonous** or **edible** based on various physical features. It uses the **Gaussian Naive Bayes** algorithm from `scikit-learn`, with performance evaluated using accuracy, precision, recall, and specificity.
 
-✅ Clean preprocessing of mushroom data
+---
 
-✅ Dataset split into training, validation, and test sets
+## 📁 Dataset
 
-✅ Model training using Gaussian Naive Bayes
+The dataset is loaded from a CSV file named `CI-EX1.csv`, which includes categorical features describing mushrooms, such as:
 
-✅ Performance evaluation on unseen data
+- Cap shape, surface, and color
+- Odor, bruises
+- Gill spacing and color
+- Stalk properties
+- Ring number and type
+- Spore print color
+- Habitat, population
+- ... and more
 
-✅ Easy-to-understand and reproducible codebase
+> The target variable is `class` — `e` for edible and `p` for poisonous.
 
-Dataset
-The dataset consists of structured mushroom characteristics such as cap shape, color, odor, gill attachment, stalk surface, and more. It has been split as follows:
+---
 
-Training Set: Remaining data after test and validation split
+## 🧠 Model
 
-Validation Set: 1219 samples
+- **Algorithm:** Gaussian Naive Bayes (`GaussianNB`)
+- **Library:** `scikit-learn`
+- **Preprocessing:** One-hot encoding via `pandas.get_dummies()` for categorical features
+- **Evaluation Metrics:** Accuracy, Precision, Recall, Specificity, Confusion Matrix
 
-Test Set: 1219 samples
+---
 
-⚠️ The dataset should be preprocessed to ensure all features are numeric or encoded properly for GaussianNB.
+## 📊 Results & Visualization
 
-Model
-Algorithm: Gaussian Naive Bayes (GaussianNB)
+The model is evaluated on both **validation** and **test** sets using:
 
-Library: scikit-learn
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **Specificity**
 
-python
-Copy
-Edit
-from sklearn.naive_bayes import GaussianNB
-model = GaussianNB()
-model.fit(X_train, y_train)
-Installation
-bash
-Copy
-Edit
-git clone https://github.com/your-username/ShroomSense.git
-cd ShroomSense
+A confusion matrix is also visualized using `matplotlib`.
+
+---
+
+## 🧪 Data Splitting
+
+The dataset is split as follows:
+
+- **Training Set:** 70%
+- **Validation Set:** 15% (half of remaining 30%)
+- **Test Set:** 15% (other half)
+
+---
+
+## 🛠️ Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/mushroom-classification.git
+cd mushroom-classification
 pip install -r requirements.txt
-Usage
-Prepare your dataset and ensure it is encoded correctly.
+```
 
-Run the training script:
+---
 
-bash
-Copy
-Edit
-python train.py
-Evaluate on test and validation sets.
+## 🚀 Running the Code
 
-Results
-The model's performance is evaluated using accuracy, precision, recall, and F1 score on both the test and validation sets.
+Make sure `CI-EX1.csv` is placed in the project root. Then run:
 
-📊 Evaluation metrics will be logged in the console/output.
+```bash
+python main.py
+```
 
-Requirements
-Python 3.7+
+You'll see evaluation results printed in the terminal and a confusion matrix displayed.
 
-scikit-learn
+---
 
-pandas
+## 📦 Requirements
 
-numpy
+```txt
+pandas>=1.4.0
+scikit-learn>=1.2.0
+matplotlib>=3.5.0
+```
 
-Install dependencies:
+Install with:
 
-bash
-Copy
-Edit
+```bash
 pip install -r requirements.txt
-Future Improvements
-Add more sophisticated models (e.g., Random Forest, SVM)
+```
 
-Implement hyperparameter tuning
+---
 
-Build a web interface for interactive predictions
+## 📈 Example Output
 
-Improve feature visualization
+```
+Test Set:
+Accuracity: 0.98
+Precision: 0.97
+Recall: 0.98
+Specificity: 0.99
 
+Validation Set:
+Accuracity: 0.97
+Precision: 0.96
+Recall: 0.97
+Specificity: 0.98
+```
+
+> ✅ Results will vary based on the dataset split and random state.
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
